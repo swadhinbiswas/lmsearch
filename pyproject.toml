@@ -1,0 +1,20 @@
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+src = ["apps/api", "apps/ingest", "ml", "scripts"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.black]
+line-length = 100
+target-version = ["py311"]
+
+[tool.mypy]
+python_version = "3.11"
+ignore_missing_imports = true
+strict = false
+
+[tool.pytest.ini_options]
+testpaths = ["apps/api/tests", "ml"]
+pythonpath = ["apps/api", "apps/ingest"]
