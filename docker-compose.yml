@@ -1,0 +1,54 @@
+services:
+  postgres:
+    image: pgvector/pgvector:pg16
+    environment:
+      POSTGRES_USER: lmsearch
+      POSTGRES_PASSWORD: lmsearch
+      POSTGRES_DB: lmsearch
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U lmsearch"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redisdata:/data
+
+  meilisearch:
+    image: getmeili/meilisearch:v1.6
+    environment:
+      MEILI_MASTER_KEY: ${MEILI_MASTER_KEY:-local-dev-key}
+    ports:
+      - "7700:7700"
+    volumes:
+      - meilidata:/meili_data
+
+  api:
+    build:
+      context: .
+      dockerfile: infra/docker/api.Dockerfile
+    environment:
+      DATABASE_URL: postgresql+psycopg://lmsearch:lmsearch@postgres:5432/lmsearch
+      REDIS_URL: redis://redis:6379/0
+      MEILI_HOST: http://meilisearch:7700
+    ports:
+      - "8000:8000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_started
+    command: uvicorn apps.api.app.main:app --host 0.0.0.0 --port 8000
+
+volumes:
+  pgdata:
+  redisdata:
+  meilidata:

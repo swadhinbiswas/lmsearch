@@ -17,3 +17,7 @@ reindex:
 	python scripts/reindex.py
 eval:
 	python ml/evaluate.py
+build:
+	docker compose build
+config:
+	docker compose config
