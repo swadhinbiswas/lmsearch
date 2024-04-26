@@ -3,7 +3,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from apps.api.app.api.v1.health import router as health_router
+from apps.api.app.api.v1.router import api_router
 from apps.api.app.core.logging import setup_logging
 
 setup_logging()
@@ -18,8 +18,7 @@ def create_app() -> FastAPI:
         allow_methods=["*"],
         allow_headers=["*"],
     )
-    app.include_router(health_router, prefix="/api/v1", tags=["health"])
-    app.include_router(health_router, tags=["health-root"])
+    app.include_router(api_router, prefix="/api/v1")
 
     @app.get("/health")
     def root_health() -> dict:
