@@ -1,3 +1,4 @@
+import { ResultsGrid } from "@/components/product-card";
 import { SearchBar } from "@/components/search-bar";
 import { UnderstoodChips } from "@/components/understood-chips";
 import { API_BASE } from "@/lib/api";
@@ -7,7 +8,7 @@ async function fetchResults(q: string) {
   const r = await fetch(`${API_BASE}/api/v1/search`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ query: q, limit: 20 }),
+    body: JSON.stringify({ query: q, limit: 21 }),
     cache: "no-store",
   });
   if (!r.ok) return null;
@@ -23,7 +24,9 @@ export default async function SearchPage({ searchParams }: { searchParams: { q?:
       <div className="mt-4">
         {data ? <UnderstoodChips parsed={data.parsed} relaxed={data.relaxed} /> : <p>Try a query above.</p>}
       </div>
-      <div className="mt-6 text-sm text-muted-foreground">{data ? `${data.total} results for “${q}”` : ""}</div>
+      <div className="mt-6">
+        {data ? <ResultsGrid hits={data.hits} /> : null}
+      </div>
     </main>
   );
 }
