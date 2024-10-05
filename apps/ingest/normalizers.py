@@ -32,9 +32,29 @@ def normalize_ram_gb(text: str) -> int | None:
 def normalize_storage_gb(text: str) -> tuple[int | None, str]:
     if not text:
         return None, ""
-    m = STORAGE_RE.search(text)
-    if not m:
+    # Prefer matches with explicit storage type (SSD/HDD/NVME); avoids "32GB RAM" false hit.
+    candidates = list(STORAGE_RE.finditer(text))
+    if not candidates:
         return None, ""
+    typed = [m for m in candidates if m.group(3)]
+    pool = typed or candidates
+    # skip candidates that are part of a RAM phrase ("32GB RAM")
+    filtered: list = []
+    for m in pool:
+        after = text[m.end(): m.end() + 8].lower()
+        if "ram" in after[:5] and not m.group(3):
+            continue
+        filtered.append(m)
+    m = (filtered or pool)[0]
+    # when untyped pool had multiple (e.g. "32GB RAM 1TB SSD"), take the largest sane value
+    if not typed and len(filtered) > 1:
+        best = None
+        for c in filtered:
+            val = float(c.group(1)) * (1024 if c.group(2).lower() == "tb" else 1)
+            if 8 <= val <= 16384 and (best is None or val > best[0]):
+                best = (val, c)
+        if best is not None:
+            m = best[1]
     val, unit, stype = float(m.group(1)), m.group(2).lower(), (m.group(3) or "SSD").upper()
     gb = int(val * 1024) if unit == "tb" else int(val)
     if gb < 8 or gb > 16384:

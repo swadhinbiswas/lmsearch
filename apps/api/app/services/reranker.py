@@ -14,12 +14,16 @@ def _load():
     if _model is not None:
         return _model
     try:
-        from sentence_transformers import CrossEncoder  # type: ignore
+        import os
 
         from apps.api.app.core.config import get_settings
 
         if not get_settings().enable_reranker:
             return None
+        if os.getenv("LMSEARCH_USE_HF_RERANKER", "0") != "1":
+            return None
+        from sentence_transformers import CrossEncoder  # type: ignore
+
         _model = CrossEncoder(get_settings().reranker_model)
         return _model
     except Exception:

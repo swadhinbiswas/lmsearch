@@ -13,10 +13,18 @@ DIM = 384
 _model = None
 
 
+def _hf_enabled() -> bool:
+    import os
+
+    return os.getenv("LMSEARCH_USE_HF_EMBEDDINGS", "0") == "1"
+
+
 def _load_model():
     global _model
     if _model is not None:
         return _model
+    if not _hf_enabled():
+        return None
     try:
         from sentence_transformers import SentenceTransformer  # type: ignore
 

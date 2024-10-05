@@ -7,6 +7,15 @@ from apps.api.app.services.embedder import embed_one
 from apps.api.app.services.text_utils import product_text
 
 _mem_vectors: dict[int, list[float]] = {}
+_prod_vec_cache: dict[int, list[float]] = {}
+
+
+def _vec_for(pid: int, text: str) -> list[float]:
+    v = _mem_vectors.get(pid) or _prod_vec_cache.get(pid)
+    if v is None:
+        v = embed_one(text)
+        _prod_vec_cache[pid] = v
+    return v
 
 
 def cosine(a: list[float], b: list[float]) -> float:
@@ -78,6 +87,6 @@ def vector_search(query: str, docs: list[dict] | None = None, limit: int = 100) 
         from apps.api.app.services.catalog import load_catalog
 
         pool = load_catalog()
-    scored = [(int(d["id"]), cosine(qv, _mem_vectors.get(int(d["id"])) or embed_one(product_text(d)))) for d in pool]
+    scored = [(int(d["id"]), cosine(qv, _vec_for(int(d["id"]), product_text(d)))) for d in pool]
     scored.sort(key=lambda x: -x[1])
     return scored[:limit]

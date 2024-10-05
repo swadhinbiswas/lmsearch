@@ -1,0 +1,1342 @@
+[
+ {
+  "id": "lap-001",
+  "query": "Ryzen Ryzen 5 laptop with 8GB RAM under $800 for programming",
+  "expected": {
+   "category": "laptop",
+   "ram_gb_min": 8,
+   "price_max_usd": 800.0,
+   "cpu_series": [
+    "ryzen5"
+   ]
+  },
+  "relevant_specs": {
+   "ram_gb_min": 8
+  }
+ },
+ {
+  "id": "lap-002",
+  "query": "Intel Ryzen 7 laptop 16GB RAM 512GB SSD below $1000",
+  "expected": {
+   "category": "laptop",
+   "ram_gb_min": 16,
+   "price_max_usd": 1000.0,
+   "cpu_series": [
+    "ryzen7"
+   ]
+  },
+  "relevant_specs": {
+   "ram_gb_min": 16
+  }
+ },
+ {
+  "id": "lap-003",
+  "query": "Dell laptop 32GB RAM under $1200",
+  "expected": {
+   "category": "laptop",
+   "ram_gb_min": 32,
+   "price_max_usd": 1200.0,
+   "brands": [
+    "Dell"
+   ]
+  },
+  "relevant_specs": {
+   "ram_gb_min": 32
+  }
+ },
+ {
+  "id": "lap-004",
+  "query": "laptop with 32GB RAM and 512GB storage under $1500",
+  "expected": {
+   "category": "laptop",
+   "ram_gb_min": 32,
+   "price_max_usd": 1500.0
+  },
+  "relevant_specs": {
+   "ram_gb_min": 32
+  }
+ },
+ {
+  "id": "lap-005",
+  "query": "Ryzen Ryzen 5 laptop with 8GB RAM under $800 for programming",
+  "expected": {
+   "category": "laptop",
+   "ram_gb_min": 8,
+   "price_max_usd": 800.0,
+   "cpu_series": [
+    "ryzen5"
+   ]
+  },
+  "relevant_specs": {
+   "ram_gb_min": 8
+  }
+ },
+ {
+  "id": "lap-006",
+  "query": "Intel Ryzen 7 laptop 16GB RAM 512GB SSD below $1000",
+  "expected": {
+   "category": "laptop",
+   "ram_gb_min": 16,
+   "price_max_usd": 1000.0,
+   "cpu_series": [
+    "ryzen7"
+   ]
+  },
+  "relevant_specs": {
+   "ram_gb_min": 16
+  }
+ },
+ {
+  "id": "lap-007",
+  "query": "Dell laptop 32GB RAM under $1200",
+  "expected": {
+   "category": "laptop",
+   "ram_gb_min": 32,
+   "price_max_usd": 1200.0,
+   "brands": [
+    "Dell"
+   ]
+  },
+  "relevant_specs": {
+   "ram_gb_min": 32
+  }
+ },
+ {
+  "id": "lap-008",
+  "query": "laptop with 32GB RAM and 512GB storage under $1500",
+  "expected": {
+   "category": "laptop",
+   "ram_gb_min": 32,
+   "price_max_usd": 1500.0
+  },
+  "relevant_specs": {
+   "ram_gb_min": 32
+  }
+ },
+ {
+  "id": "lap-009",
+  "query": "Ryzen Ryzen 5 laptop with 8GB RAM under $800 for programming",
+  "expected": {
+   "category": "laptop",
+   "ram_gb_min": 8,
+   "price_max_usd": 800.0,
+   "cpu_series": [
+    "ryzen5"
+   ]
+  },
+  "relevant_specs": {
+   "ram_gb_min": 8
+  }
+ },
+ {
+  "id": "lap-010",
+  "query": "Intel Ryzen 7 laptop 16GB RAM 512GB SSD below $1000",
+  "expected": {
+   "category": "laptop",
+   "ram_gb_min": 16,
+   "price_max_usd": 1000.0,
+   "cpu_series": [
+    "ryzen7"
+   ]
+  },
+  "relevant_specs": {
+   "ram_gb_min": 16
+  }
+ },
+ {
+  "id": "lap-011",
+  "query": "Dell laptop 32GB RAM under $1200",
+  "expected": {
+   "category": "laptop",
+   "ram_gb_min": 32,
+   "price_max_usd": 1200.0,
+   "brands": [
+    "Dell"
+   ]
+  },
+  "relevant_specs": {
+   "ram_gb_min": 32
+  }
+ },
+ {
+  "id": "lap-012",
+  "query": "laptop with 32GB RAM and 512GB storage under $1500",
+  "expected": {
+   "category": "laptop",
+   "ram_gb_min": 32,
+   "price_max_usd": 1500.0
+  },
+  "relevant_specs": {
+   "ram_gb_min": 32
+  }
+ },
+ {
+  "id": "lap-013",
+  "query": "Ryzen Ryzen 5 laptop with 8GB RAM under $800 for programming",
+  "expected": {
+   "category": "laptop",
+   "ram_gb_min": 8,
+   "price_max_usd": 800.0,
+   "cpu_series": [
+    "ryzen5"
+   ]
+  },
+  "relevant_specs": {
+   "ram_gb_min": 8
+  }
+ },
+ {
+  "id": "lap-014",
+  "query": "Intel Ryzen 7 laptop 16GB RAM 512GB SSD below $1000",
+  "expected": {
+   "category": "laptop",
+   "ram_gb_min": 16,
+   "price_max_usd": 1000.0,
+   "cpu_series": [
+    "ryzen7"
+   ]
+  },
+  "relevant_specs": {
+   "ram_gb_min": 16
+  }
+ },
+ {
+  "id": "lap-015",
+  "query": "Dell laptop 32GB RAM under $1200",
+  "expected": {
+   "category": "laptop",
+   "ram_gb_min": 32,
+   "price_max_usd": 1200.0,
+   "brands": [
+    "Dell"
+   ]
+  },
+  "relevant_specs": {
+   "ram_gb_min": 32
+  }
+ },
+ {
+  "id": "lap-016",
+  "query": "laptop with 32GB RAM and 512GB storage under $1500",
+  "expected": {
+   "category": "laptop",
+   "ram_gb_min": 32,
+   "price_max_usd": 1500.0
+  },
+  "relevant_specs": {
+   "ram_gb_min": 32
+  }
+ },
+ {
+  "id": "lap-017",
+  "query": "Ryzen Ryzen 5 laptop with 8GB RAM under $800 for programming",
+  "expected": {
+   "category": "laptop",
+   "ram_gb_min": 8,
+   "price_max_usd": 800.0,
+   "cpu_series": [
+    "ryzen5"
+   ]
+  },
+  "relevant_specs": {
+   "ram_gb_min": 8
+  }
+ },
+ {
+  "id": "lap-018",
+  "query": "Intel Ryzen 7 laptop 16GB RAM 512GB SSD below $1000",
+  "expected": {
+   "category": "laptop",
+   "ram_gb_min": 16,
+   "price_max_usd": 1000.0,
+   "cpu_series": [
+    "ryzen7"
+   ]
+  },
+  "relevant_specs": {
+   "ram_gb_min": 16
+  }
+ },
+ {
+  "id": "lap-019",
+  "query": "Dell laptop 32GB RAM under $1200",
+  "expected": {
+   "category": "laptop",
+   "ram_gb_min": 32,
+   "price_max_usd": 1200.0,
+   "brands": [
+    "Dell"
+   ]
+  },
+  "relevant_specs": {
+   "ram_gb_min": 32
+  }
+ },
+ {
+  "id": "lap-020",
+  "query": "laptop with 32GB RAM and 512GB storage under $1500",
+  "expected": {
+   "category": "laptop",
+   "ram_gb_min": 32,
+   "price_max_usd": 1500.0
+  },
+  "relevant_specs": {
+   "ram_gb_min": 32
+  }
+ },
+ {
+  "id": "lap-021",
+  "query": "Ryzen Ryzen 5 laptop with 8GB RAM under $800 for programming",
+  "expected": {
+   "category": "laptop",
+   "ram_gb_min": 8,
+   "price_max_usd": 800.0,
+   "cpu_series": [
+    "ryzen5"
+   ]
+  },
+  "relevant_specs": {
+   "ram_gb_min": 8
+  }
+ },
+ {
+  "id": "lap-022",
+  "query": "Intel Ryzen 7 laptop 16GB RAM 512GB SSD below $1000",
+  "expected": {
+   "category": "laptop",
+   "ram_gb_min": 16,
+   "price_max_usd": 1000.0,
+   "cpu_series": [
+    "ryzen7"
+   ]
+  },
+  "relevant_specs": {
+   "ram_gb_min": 16
+  }
+ },
+ {
+  "id": "lap-023",
+  "query": "Dell laptop 32GB RAM under $1200",
+  "expected": {
+   "category": "laptop",
+   "ram_gb_min": 32,
+   "price_max_usd": 1200.0,
+   "brands": [
+    "Dell"
+   ]
+  },
+  "relevant_specs": {
+   "ram_gb_min": 32
+  }
+ },
+ {
+  "id": "lap-024",
+  "query": "laptop with 32GB RAM and 512GB storage under $1500",
+  "expected": {
+   "category": "laptop",
+   "ram_gb_min": 32,
+   "price_max_usd": 1500.0
+  },
+  "relevant_specs": {
+   "ram_gb_min": 32
+  }
+ },
+ {
+  "id": "lap-025",
+  "query": "Ryzen Ryzen 5 laptop with 8GB RAM under $800 for programming",
+  "expected": {
+   "category": "laptop",
+   "ram_gb_min": 8,
+   "price_max_usd": 800.0,
+   "cpu_series": [
+    "ryzen5"
+   ]
+  },
+  "relevant_specs": {
+   "ram_gb_min": 8
+  }
+ },
+ {
+  "id": "lap-026",
+  "query": "Intel Ryzen 7 laptop 16GB RAM 512GB SSD below $1000",
+  "expected": {
+   "category": "laptop",
+   "ram_gb_min": 16,
+   "price_max_usd": 1000.0,
+   "cpu_series": [
+    "ryzen7"
+   ]
+  },
+  "relevant_specs": {
+   "ram_gb_min": 16
+  }
+ },
+ {
+  "id": "lap-027",
+  "query": "Dell laptop 32GB RAM under $1200",
+  "expected": {
+   "category": "laptop",
+   "ram_gb_min": 32,
+   "price_max_usd": 1200.0,
+   "brands": [
+    "Dell"
+   ]
+  },
+  "relevant_specs": {
+   "ram_gb_min": 32
+  }
+ },
+ {
+  "id": "lap-028",
+  "query": "laptop with 32GB RAM and 512GB storage under $1500",
+  "expected": {
+   "category": "laptop",
+   "ram_gb_min": 32,
+   "price_max_usd": 1500.0
+  },
+  "relevant_specs": {
+   "ram_gb_min": 32
+  }
+ },
+ {
+  "id": "lap-029",
+  "query": "Ryzen Ryzen 5 laptop with 8GB RAM under $800 for programming",
+  "expected": {
+   "category": "laptop",
+   "ram_gb_min": 8,
+   "price_max_usd": 800.0,
+   "cpu_series": [
+    "ryzen5"
+   ]
+  },
+  "relevant_specs": {
+   "ram_gb_min": 8
+  }
+ },
+ {
+  "id": "lap-030",
+  "query": "Intel Ryzen 7 laptop 16GB RAM 512GB SSD below $1000",
+  "expected": {
+   "category": "laptop",
+   "ram_gb_min": 16,
+   "price_max_usd": 1000.0,
+   "cpu_series": [
+    "ryzen7"
+   ]
+  },
+  "relevant_specs": {
+   "ram_gb_min": 16
+  }
+ },
+ {
+  "id": "lap-031",
+  "query": "Dell laptop 32GB RAM under $1200",
+  "expected": {
+   "category": "laptop",
+   "ram_gb_min": 32,
+   "price_max_usd": 1200.0,
+   "brands": [
+    "Dell"
+   ]
+  },
+  "relevant_specs": {
+   "ram_gb_min": 32
+  }
+ },
+ {
+  "id": "lap-032",
+  "query": "laptop with 32GB RAM and 512GB storage under $1500",
+  "expected": {
+   "category": "laptop",
+   "ram_gb_min": 32,
+   "price_max_usd": 1500.0
+  },
+  "relevant_specs": {
+   "ram_gb_min": 32
+  }
+ },
+ {
+  "id": "lap-033",
+  "query": "Ryzen Ryzen 5 laptop with 8GB RAM under $800 for programming",
+  "expected": {
+   "category": "laptop",
+   "ram_gb_min": 8,
+   "price_max_usd": 800.0,
+   "cpu_series": [
+    "ryzen5"
+   ]
+  },
+  "relevant_specs": {
+   "ram_gb_min": 8
+  }
+ },
+ {
+  "id": "lap-034",
+  "query": "Intel Ryzen 7 laptop 16GB RAM 512GB SSD below $1000",
+  "expected": {
+   "category": "laptop",
+   "ram_gb_min": 16,
+   "price_max_usd": 1000.0,
+   "cpu_series": [
+    "ryzen7"
+   ]
+  },
+  "relevant_specs": {
+   "ram_gb_min": 16
+  }
+ },
+ {
+  "id": "lap-035",
+  "query": "Dell laptop 32GB RAM under $1200",
+  "expected": {
+   "category": "laptop",
+   "ram_gb_min": 32,
+   "price_max_usd": 1200.0,
+   "brands": [
+    "Dell"
+   ]
+  },
+  "relevant_specs": {
+   "ram_gb_min": 32
+  }
+ },
+ {
+  "id": "lap-036",
+  "query": "laptop with 32GB RAM and 512GB storage under $1500",
+  "expected": {
+   "category": "laptop",
+   "ram_gb_min": 32,
+   "price_max_usd": 1500.0
+  },
+  "relevant_specs": {
+   "ram_gb_min": 32
+  }
+ },
+ {
+  "id": "lap-037",
+  "query": "Ryzen Ryzen 5 laptop with 8GB RAM under $800 for programming",
+  "expected": {
+   "category": "laptop",
+   "ram_gb_min": 8,
+   "price_max_usd": 800.0,
+   "cpu_series": [
+    "ryzen5"
+   ]
+  },
+  "relevant_specs": {
+   "ram_gb_min": 8
+  }
+ },
+ {
+  "id": "lap-038",
+  "query": "Intel Ryzen 7 laptop 16GB RAM 512GB SSD below $1000",
+  "expected": {
+   "category": "laptop",
+   "ram_gb_min": 16,
+   "price_max_usd": 1000.0,
+   "cpu_series": [
+    "ryzen7"
+   ]
+  },
+  "relevant_specs": {
+   "ram_gb_min": 16
+  }
+ },
+ {
+  "id": "lap-039",
+  "query": "Dell laptop 32GB RAM under $1200",
+  "expected": {
+   "category": "laptop",
+   "ram_gb_min": 32,
+   "price_max_usd": 1200.0,
+   "brands": [
+    "Dell"
+   ]
+  },
+  "relevant_specs": {
+   "ram_gb_min": 32
+  }
+ },
+ {
+  "id": "lap-040",
+  "query": "laptop with 32GB RAM and 512GB storage under $1500",
+  "expected": {
+   "category": "laptop",
+   "ram_gb_min": 32,
+   "price_max_usd": 1500.0
+  },
+  "relevant_specs": {
+   "ram_gb_min": 32
+  }
+ },
+ {
+  "id": "ph-001",
+  "query": "gaming phone 90Hz screen 4000mAh battery 6GB RAM below 25k BDT",
+  "expected": {
+   "category": "phone",
+   "refresh_hz_min": 90,
+   "battery_mah_min": 4000,
+   "price_max_usd": 213.68
+  },
+  "relevant_specs": {
+   "battery_mah_min": 4000
+  }
+ },
+ {
+  "id": "ph-002",
+  "query": "gaming phone 120Hz screen 5000mAh battery 8GB RAM below 40k BDT",
+  "expected": {
+   "category": "phone",
+   "refresh_hz_min": 120,
+   "battery_mah_min": 5000,
+   "price_max_usd": 341.88
+  },
+  "relevant_specs": {
+   "battery_mah_min": 5000
+  }
+ },
+ {
+  "id": "ph-003",
+  "query": "gaming phone 120Hz screen 5500mAh battery 12GB RAM below 60k BDT",
+  "expected": {
+   "category": "phone",
+   "refresh_hz_min": 120,
+   "battery_mah_min": 5500,
+   "price_max_usd": 512.82
+  },
+  "relevant_specs": {
+   "battery_mah_min": 5500
+  }
+ },
+ {
+  "id": "ph-004",
+  "query": "gaming phone 90Hz screen 4000mAh battery 6GB RAM below 25k BDT",
+  "expected": {
+   "category": "phone",
+   "refresh_hz_min": 90,
+   "battery_mah_min": 4000,
+   "price_max_usd": 213.68
+  },
+  "relevant_specs": {
+   "battery_mah_min": 4000
+  }
+ },
+ {
+  "id": "ph-005",
+  "query": "gaming phone 120Hz screen 5000mAh battery 8GB RAM below 40k BDT",
+  "expected": {
+   "category": "phone",
+   "refresh_hz_min": 120,
+   "battery_mah_min": 5000,
+   "price_max_usd": 341.88
+  },
+  "relevant_specs": {
+   "battery_mah_min": 5000
+  }
+ },
+ {
+  "id": "ph-006",
+  "query": "gaming phone 120Hz screen 5500mAh battery 12GB RAM below 60k BDT",
+  "expected": {
+   "category": "phone",
+   "refresh_hz_min": 120,
+   "battery_mah_min": 5500,
+   "price_max_usd": 512.82
+  },
+  "relevant_specs": {
+   "battery_mah_min": 5500
+  }
+ },
+ {
+  "id": "ph-007",
+  "query": "gaming phone 90Hz screen 4000mAh battery 6GB RAM below 25k BDT",
+  "expected": {
+   "category": "phone",
+   "refresh_hz_min": 90,
+   "battery_mah_min": 4000,
+   "price_max_usd": 213.68
+  },
+  "relevant_specs": {
+   "battery_mah_min": 4000
+  }
+ },
+ {
+  "id": "ph-008",
+  "query": "gaming phone 120Hz screen 5000mAh battery 8GB RAM below 40k BDT",
+  "expected": {
+   "category": "phone",
+   "refresh_hz_min": 120,
+   "battery_mah_min": 5000,
+   "price_max_usd": 341.88
+  },
+  "relevant_specs": {
+   "battery_mah_min": 5000
+  }
+ },
+ {
+  "id": "ph-009",
+  "query": "gaming phone 120Hz screen 5500mAh battery 12GB RAM below 60k BDT",
+  "expected": {
+   "category": "phone",
+   "refresh_hz_min": 120,
+   "battery_mah_min": 5500,
+   "price_max_usd": 512.82
+  },
+  "relevant_specs": {
+   "battery_mah_min": 5500
+  }
+ },
+ {
+  "id": "ph-010",
+  "query": "gaming phone 90Hz screen 4000mAh battery 6GB RAM below 25k BDT",
+  "expected": {
+   "category": "phone",
+   "refresh_hz_min": 90,
+   "battery_mah_min": 4000,
+   "price_max_usd": 213.68
+  },
+  "relevant_specs": {
+   "battery_mah_min": 4000
+  }
+ },
+ {
+  "id": "ph-011",
+  "query": "gaming phone 120Hz screen 5000mAh battery 8GB RAM below 40k BDT",
+  "expected": {
+   "category": "phone",
+   "refresh_hz_min": 120,
+   "battery_mah_min": 5000,
+   "price_max_usd": 341.88
+  },
+  "relevant_specs": {
+   "battery_mah_min": 5000
+  }
+ },
+ {
+  "id": "ph-012",
+  "query": "gaming phone 120Hz screen 5500mAh battery 12GB RAM below 60k BDT",
+  "expected": {
+   "category": "phone",
+   "refresh_hz_min": 120,
+   "battery_mah_min": 5500,
+   "price_max_usd": 512.82
+  },
+  "relevant_specs": {
+   "battery_mah_min": 5500
+  }
+ },
+ {
+  "id": "ph-013",
+  "query": "gaming phone 90Hz screen 4000mAh battery 6GB RAM below 25k BDT",
+  "expected": {
+   "category": "phone",
+   "refresh_hz_min": 90,
+   "battery_mah_min": 4000,
+   "price_max_usd": 213.68
+  },
+  "relevant_specs": {
+   "battery_mah_min": 4000
+  }
+ },
+ {
+  "id": "ph-014",
+  "query": "gaming phone 120Hz screen 5000mAh battery 8GB RAM below 40k BDT",
+  "expected": {
+   "category": "phone",
+   "refresh_hz_min": 120,
+   "battery_mah_min": 5000,
+   "price_max_usd": 341.88
+  },
+  "relevant_specs": {
+   "battery_mah_min": 5000
+  }
+ },
+ {
+  "id": "ph-015",
+  "query": "gaming phone 120Hz screen 5500mAh battery 12GB RAM below 60k BDT",
+  "expected": {
+   "category": "phone",
+   "refresh_hz_min": 120,
+   "battery_mah_min": 5500,
+   "price_max_usd": 512.82
+  },
+  "relevant_specs": {
+   "battery_mah_min": 5500
+  }
+ },
+ {
+  "id": "ph-016",
+  "query": "gaming phone 90Hz screen 4000mAh battery 6GB RAM below 25k BDT",
+  "expected": {
+   "category": "phone",
+   "refresh_hz_min": 90,
+   "battery_mah_min": 4000,
+   "price_max_usd": 213.68
+  },
+  "relevant_specs": {
+   "battery_mah_min": 4000
+  }
+ },
+ {
+  "id": "ph-017",
+  "query": "gaming phone 120Hz screen 5000mAh battery 8GB RAM below 40k BDT",
+  "expected": {
+   "category": "phone",
+   "refresh_hz_min": 120,
+   "battery_mah_min": 5000,
+   "price_max_usd": 341.88
+  },
+  "relevant_specs": {
+   "battery_mah_min": 5000
+  }
+ },
+ {
+  "id": "ph-018",
+  "query": "gaming phone 120Hz screen 5500mAh battery 12GB RAM below 60k BDT",
+  "expected": {
+   "category": "phone",
+   "refresh_hz_min": 120,
+   "battery_mah_min": 5500,
+   "price_max_usd": 512.82
+  },
+  "relevant_specs": {
+   "battery_mah_min": 5500
+  }
+ },
+ {
+  "id": "ph-019",
+  "query": "gaming phone 90Hz screen 4000mAh battery 6GB RAM below 25k BDT",
+  "expected": {
+   "category": "phone",
+   "refresh_hz_min": 90,
+   "battery_mah_min": 4000,
+   "price_max_usd": 213.68
+  },
+  "relevant_specs": {
+   "battery_mah_min": 4000
+  }
+ },
+ {
+  "id": "ph-020",
+  "query": "gaming phone 120Hz screen 5000mAh battery 8GB RAM below 40k BDT",
+  "expected": {
+   "category": "phone",
+   "refresh_hz_min": 120,
+   "battery_mah_min": 5000,
+   "price_max_usd": 341.88
+  },
+  "relevant_specs": {
+   "battery_mah_min": 5000
+  }
+ },
+ {
+  "id": "ph-021",
+  "query": "gaming phone 120Hz screen 5500mAh battery 12GB RAM below 60k BDT",
+  "expected": {
+   "category": "phone",
+   "refresh_hz_min": 120,
+   "battery_mah_min": 5500,
+   "price_max_usd": 512.82
+  },
+  "relevant_specs": {
+   "battery_mah_min": 5500
+  }
+ },
+ {
+  "id": "ph-022",
+  "query": "gaming phone 90Hz screen 4000mAh battery 6GB RAM below 25k BDT",
+  "expected": {
+   "category": "phone",
+   "refresh_hz_min": 90,
+   "battery_mah_min": 4000,
+   "price_max_usd": 213.68
+  },
+  "relevant_specs": {
+   "battery_mah_min": 4000
+  }
+ },
+ {
+  "id": "ph-023",
+  "query": "gaming phone 120Hz screen 5000mAh battery 8GB RAM below 40k BDT",
+  "expected": {
+   "category": "phone",
+   "refresh_hz_min": 120,
+   "battery_mah_min": 5000,
+   "price_max_usd": 341.88
+  },
+  "relevant_specs": {
+   "battery_mah_min": 5000
+  }
+ },
+ {
+  "id": "ph-024",
+  "query": "gaming phone 120Hz screen 5500mAh battery 12GB RAM below 60k BDT",
+  "expected": {
+   "category": "phone",
+   "refresh_hz_min": 120,
+   "battery_mah_min": 5500,
+   "price_max_usd": 512.82
+  },
+  "relevant_specs": {
+   "battery_mah_min": 5500
+  }
+ },
+ {
+  "id": "ph-025",
+  "query": "gaming phone 90Hz screen 4000mAh battery 6GB RAM below 25k BDT",
+  "expected": {
+   "category": "phone",
+   "refresh_hz_min": 90,
+   "battery_mah_min": 4000,
+   "price_max_usd": 213.68
+  },
+  "relevant_specs": {
+   "battery_mah_min": 4000
+  }
+ },
+ {
+  "id": "ph-026",
+  "query": "gaming phone 120Hz screen 5000mAh battery 8GB RAM below 40k BDT",
+  "expected": {
+   "category": "phone",
+   "refresh_hz_min": 120,
+   "battery_mah_min": 5000,
+   "price_max_usd": 341.88
+  },
+  "relevant_specs": {
+   "battery_mah_min": 5000
+  }
+ },
+ {
+  "id": "ph-027",
+  "query": "gaming phone 120Hz screen 5500mAh battery 12GB RAM below 60k BDT",
+  "expected": {
+   "category": "phone",
+   "refresh_hz_min": 120,
+   "battery_mah_min": 5500,
+   "price_max_usd": 512.82
+  },
+  "relevant_specs": {
+   "battery_mah_min": 5500
+  }
+ },
+ {
+  "id": "ph-028",
+  "query": "gaming phone 90Hz screen 4000mAh battery 6GB RAM below 25k BDT",
+  "expected": {
+   "category": "phone",
+   "refresh_hz_min": 90,
+   "battery_mah_min": 4000,
+   "price_max_usd": 213.68
+  },
+  "relevant_specs": {
+   "battery_mah_min": 4000
+  }
+ },
+ {
+  "id": "ph-029",
+  "query": "gaming phone 120Hz screen 5000mAh battery 8GB RAM below 40k BDT",
+  "expected": {
+   "category": "phone",
+   "refresh_hz_min": 120,
+   "battery_mah_min": 5000,
+   "price_max_usd": 341.88
+  },
+  "relevant_specs": {
+   "battery_mah_min": 5000
+  }
+ },
+ {
+  "id": "ph-030",
+  "query": "gaming phone 120Hz screen 5500mAh battery 12GB RAM below 60k BDT",
+  "expected": {
+   "category": "phone",
+   "refresh_hz_min": 120,
+   "battery_mah_min": 5500,
+   "price_max_usd": 512.82
+  },
+  "relevant_specs": {
+   "battery_mah_min": 5500
+  }
+ },
+ {
+  "id": "br-001",
+  "query": "Samsung phone with 8GB RAM",
+  "expected": {
+   "category": "phone",
+   "brands": [
+    "Samsung"
+   ],
+   "ram_gb_min": 8
+  },
+  "relevant_specs": {
+   "ram_gb_min": 8
+  }
+ },
+ {
+  "id": "br-002",
+  "query": "Xiaomi phone with 12GB RAM",
+  "expected": {
+   "category": "phone",
+   "brands": [
+    "Xiaomi"
+   ],
+   "ram_gb_min": 12
+  },
+  "relevant_specs": {
+   "ram_gb_min": 12
+  }
+ },
+ {
+  "id": "br-003",
+  "query": "Apple laptop with 16GB RAM",
+  "expected": {
+   "category": "laptop",
+   "brands": [
+    "Apple"
+   ],
+   "ram_gb_min": 16
+  },
+  "relevant_specs": {
+   "ram_gb_min": 16
+  }
+ },
+ {
+  "id": "br-004",
+  "query": "Lenovo laptop with 8GB RAM",
+  "expected": {
+   "category": "laptop",
+   "brands": [
+    "Lenovo"
+   ],
+   "ram_gb_min": 8
+  },
+  "relevant_specs": {
+   "ram_gb_min": 8
+  }
+ },
+ {
+  "id": "br-005",
+  "query": "Samsung phone with 12GB RAM",
+  "expected": {
+   "category": "phone",
+   "brands": [
+    "Samsung"
+   ],
+   "ram_gb_min": 12
+  },
+  "relevant_specs": {
+   "ram_gb_min": 12
+  }
+ },
+ {
+  "id": "br-006",
+  "query": "Xiaomi phone with 16GB RAM",
+  "expected": {
+   "category": "phone",
+   "brands": [
+    "Xiaomi"
+   ],
+   "ram_gb_min": 16
+  },
+  "relevant_specs": {
+   "ram_gb_min": 16
+  }
+ },
+ {
+  "id": "br-007",
+  "query": "Apple laptop with 8GB RAM",
+  "expected": {
+   "category": "laptop",
+   "brands": [
+    "Apple"
+   ],
+   "ram_gb_min": 8
+  },
+  "relevant_specs": {
+   "ram_gb_min": 8
+  }
+ },
+ {
+  "id": "br-008",
+  "query": "Lenovo laptop with 12GB RAM",
+  "expected": {
+   "category": "laptop",
+   "brands": [
+    "Lenovo"
+   ],
+   "ram_gb_min": 12
+  },
+  "relevant_specs": {
+   "ram_gb_min": 12
+  }
+ },
+ {
+  "id": "br-009",
+  "query": "Samsung phone with 16GB RAM",
+  "expected": {
+   "category": "phone",
+   "brands": [
+    "Samsung"
+   ],
+   "ram_gb_min": 16
+  },
+  "relevant_specs": {
+   "ram_gb_min": 16
+  }
+ },
+ {
+  "id": "br-010",
+  "query": "Xiaomi phone with 8GB RAM",
+  "expected": {
+   "category": "phone",
+   "brands": [
+    "Xiaomi"
+   ],
+   "ram_gb_min": 8
+  },
+  "relevant_specs": {
+   "ram_gb_min": 8
+  }
+ },
+ {
+  "id": "br-011",
+  "query": "Apple laptop with 12GB RAM",
+  "expected": {
+   "category": "laptop",
+   "brands": [
+    "Apple"
+   ],
+   "ram_gb_min": 12
+  },
+  "relevant_specs": {
+   "ram_gb_min": 12
+  }
+ },
+ {
+  "id": "br-012",
+  "query": "Lenovo laptop with 16GB RAM",
+  "expected": {
+   "category": "laptop",
+   "brands": [
+    "Lenovo"
+   ],
+   "ram_gb_min": 16
+  },
+  "relevant_specs": {
+   "ram_gb_min": 16
+  }
+ },
+ {
+  "id": "br-013",
+  "query": "Samsung phone with 8GB RAM",
+  "expected": {
+   "category": "phone",
+   "brands": [
+    "Samsung"
+   ],
+   "ram_gb_min": 8
+  },
+  "relevant_specs": {
+   "ram_gb_min": 8
+  }
+ },
+ {
+  "id": "br-014",
+  "query": "Xiaomi phone with 12GB RAM",
+  "expected": {
+   "category": "phone",
+   "brands": [
+    "Xiaomi"
+   ],
+   "ram_gb_min": 12
+  },
+  "relevant_specs": {
+   "ram_gb_min": 12
+  }
+ },
+ {
+  "id": "br-015",
+  "query": "Apple laptop with 16GB RAM",
+  "expected": {
+   "category": "laptop",
+   "brands": [
+    "Apple"
+   ],
+   "ram_gb_min": 16
+  },
+  "relevant_specs": {
+   "ram_gb_min": 16
+  }
+ },
+ {
+  "id": "bn-001",
+  "query": "\u09b2\u09cd\u09af\u09be\u09aa\u099f\u09aa 8GB RAM under 50000 \u099f\u09be\u0995\u09be",
+  "expected": {
+   "ram_gb_min": 8
+  },
+  "relevant_specs": {
+   "ram_gb_min": 8
+  }
+ },
+ {
+  "id": "bn-002",
+  "query": "gaming phone 5000mAh battery below 100k BDT",
+  "expected": {
+   "category": "phone",
+   "battery_mah_min": 5000
+  },
+  "relevant_specs": {
+   "category": "phone",
+   "battery_mah_min": 5000
+  }
+ },
+ {
+  "id": "bn-003",
+  "query": "\u09b2\u09cd\u09af\u09be\u09aa\u099f\u09aa 8GB RAM under 50000 \u099f\u09be\u0995\u09be",
+  "expected": {
+   "ram_gb_min": 8
+  },
+  "relevant_specs": {
+   "ram_gb_min": 8
+  }
+ },
+ {
+  "id": "bn-004",
+  "query": "gaming phone 5000mAh battery below 100k BDT",
+  "expected": {
+   "category": "phone",
+   "battery_mah_min": 5000
+  },
+  "relevant_specs": {
+   "category": "phone",
+   "battery_mah_min": 5000
+  }
+ },
+ {
+  "id": "bn-005",
+  "query": "\u09b2\u09cd\u09af\u09be\u09aa\u099f\u09aa 8GB RAM under 50000 \u099f\u09be\u0995\u09be",
+  "expected": {
+   "ram_gb_min": 8
+  },
+  "relevant_specs": {
+   "ram_gb_min": 8
+  }
+ },
+ {
+  "id": "bn-006",
+  "query": "gaming phone 5000mAh battery below 100k BDT",
+  "expected": {
+   "category": "phone",
+   "battery_mah_min": 5000
+  },
+  "relevant_specs": {
+   "category": "phone",
+   "battery_mah_min": 5000
+  }
+ },
+ {
+  "id": "bn-007",
+  "query": "\u09b2\u09cd\u09af\u09be\u09aa\u099f\u09aa 8GB RAM under 50000 \u099f\u09be\u0995\u09be",
+  "expected": {
+   "ram_gb_min": 8
+  },
+  "relevant_specs": {
+   "ram_gb_min": 8
+  }
+ },
+ {
+  "id": "bn-008",
+  "query": "gaming phone 5000mAh battery below 100k BDT",
+  "expected": {
+   "category": "phone",
+   "battery_mah_min": 5000
+  },
+  "relevant_specs": {
+   "category": "phone",
+   "battery_mah_min": 5000
+  }
+ },
+ {
+  "id": "bn-009",
+  "query": "\u09b2\u09cd\u09af\u09be\u09aa\u099f\u09aa 8GB RAM under 50000 \u099f\u09be\u0995\u09be",
+  "expected": {
+   "ram_gb_min": 8
+  },
+  "relevant_specs": {
+   "ram_gb_min": 8
+  }
+ },
+ {
+  "id": "bn-010",
+  "query": "gaming phone 5000mAh battery below 100k BDT",
+  "expected": {
+   "category": "phone",
+   "battery_mah_min": 5000
+  },
+  "relevant_specs": {
+   "category": "phone",
+   "battery_mah_min": 5000
+  }
+ },
+ {
+  "id": "ex-001",
+  "query": "laptop between $800 and $1200 with 16GB RAM",
+  "expected": {
+   "price_min_usd": 800,
+   "price_max_usd": 1200,
+   "ram_gb_min": 16
+  },
+  "relevant_specs": {
+   "price_min_usd": 800,
+   "price_max_usd": 1200,
+   "ram_gb_min": 16
+  }
+ },
+ {
+  "id": "ex-002",
+  "query": "phone around 30k BDT with 8GB RAM",
+  "expected": {
+   "price_max_usd": 294.87,
+   "ram_gb_min": 8
+  },
+  "relevant_specs": {
+   "price_max_usd": 294.87,
+   "ram_gb_min": 8
+  }
+ },
+ {
+  "id": "ex-003",
+  "query": "i7 laptop 16GB RAM 512GB SSD under $1400",
+  "expected": {
+   "ram_gb_min": 16,
+   "price_max_usd": 1400
+  },
+  "relevant_specs": {
+   "ram_gb_min": 16,
+   "price_max_usd": 1400
+  }
+ },
+ {
+  "id": "ex-004",
+  "query": "phone with 120Hz display under 35k BDT",
+  "expected": {
+   "refresh_hz_min": 120
+  },
+  "relevant_specs": {
+   "refresh_hz_min": 120
+  }
+ },
+ {
+  "id": "ex-005",
+  "query": "Ryzen 9 laptop 32GB RAM for gaming under $2000",
+  "expected": {
+   "ram_gb_min": 32,
+   "price_max_usd": 2000
+  },
+  "relevant_specs": {
+   "ram_gb_min": 32,
+   "price_max_usd": 2000
+  }
+ }
+]
