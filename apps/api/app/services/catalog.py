@@ -4,7 +4,7 @@ from __future__ import annotations
 from functools import lru_cache
 
 
-@lru_cache(maxsize=1)
+@lru_cache(maxsize=2)
 def load_catalog(n: int = 600) -> list[dict]:
     from scripts.seed_data import gen_products
 
