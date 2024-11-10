@@ -5,6 +5,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from apps.api.app.api.v1.router import api_router
 from apps.api.app.core.logging import setup_logging
+from apps.api.app.core.middleware import RequestContextMiddleware
 
 setup_logging()
 
@@ -18,6 +19,7 @@ def create_app() -> FastAPI:
         allow_methods=["*"],
         allow_headers=["*"],
     )
+    app.add_middleware(RequestContextMiddleware)
     app.include_router(api_router, prefix="/api/v1")
 
     @app.get("/health")
