@@ -66,7 +66,8 @@ def apply_filters(catalog: list[dict], parsed: dict) -> tuple[list[dict], list[s
             relaxed.append("brand")
         elif step in ("price_max", "price_min") and work.get("price"):
             if step == "price_max" and work["price"].get("max") is not None:
-                work["price"]["max"] = round(float(work["price"]["max"]) * 1.2, 2)
+                orig = float(parsed.get("price", {}).get("max") or work["price"]["max"])
+                work["price"]["max"] = min(round(float(work["price"]["max"]) * 1.2, 2), round(orig * 2.0, 2))
                 relaxed.append("price_max+20%")
             elif step == "price_min" and work["price"].get("min") is not None:
                 work["price"]["min"] = round(float(work["price"]["min"]) * 0.8, 2)

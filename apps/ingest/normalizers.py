@@ -132,3 +132,23 @@ def normalize_specs(title: str, description: str = "", category: str = "laptop")
     elif "rtx 4050" in low:
         specs["gpu"] = "RTX 4050"
     return specs
+
+
+WEIGHT_RE = __import__("re").compile(r"(\d+(?:\.\d+)?)\s*kg", __import__("re").I)
+OS_RE = __import__("re").compile(r"(windows\s*11|windows\s*10|macos|ubuntu|linux|dos)", __import__("re").I)
+
+
+def normalize_weight_kg(text: str) -> float | None:
+    import re as _re
+    m = _re.search(r"(\d+(?:\.\d+)?)\s*kg", text or "", _re.I)
+    if m:
+        v = float(m.group(1))
+        if 0.5 <= v <= 5.0:
+            return v
+    return None
+
+
+def normalize_os(text: str) -> str:
+    import re as _re
+    m = _re.search(r"(windows\s*11|windows\s*10|macos|ubuntu|linux|dos)", text or "", _re.I)
+    return m.group(1).title() if m else ""

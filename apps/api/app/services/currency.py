@@ -23,6 +23,12 @@ def detect_currency(text: str) -> str:
     return "USD"
 
 
+def _reject_absurd(v: float | None) -> float | None:
+    if v is not None and v > 100_000_000:
+        return None
+    return v
+
+
 def parse_amount(chunk: str) -> float | None:
     if not chunk:
         return None
@@ -36,7 +42,7 @@ def parse_amount(chunk: str) -> float | None:
     m = NUM_RE.search(c)
     if m:
         try:
-            return float(m.group(0))
+            return _reject_absurd(float(m.group(0)))
         except ValueError:
             return None
     return None
