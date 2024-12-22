@@ -11,7 +11,7 @@ setup_logging()
 
 
 def create_app() -> FastAPI:
-    app = FastAPI(title="lmsearch", version="0.1.0", docs_url="/docs", openapi_url="/openapi.json")
+    app = FastAPI(title="lmsearch", version="1.0.0", docs_url="/docs", openapi_url="/openapi.json")
     app.add_middleware(
         CORSMiddleware,
         allow_origins=["*"],
