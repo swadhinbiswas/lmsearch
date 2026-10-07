@@ -17,4 +17,4 @@ If <5 results, drop in order: brand → price±20% → refresh/battery → stora
 Every relaxation is reported in `relaxed[]` and shown as dashed chips in the UI.
 
 ## Targets
-p95 <800ms cached, <2s cold. Eval: Precision@10 0.988, nDCG@10 0.970, parser accuracy 100% (gate ≥90%).
+p95 <800ms cached, <2s cold. Eval: Precision@10 0.952, nDCG@10 0.943, parser accuracy 100% (gate ≥90%).

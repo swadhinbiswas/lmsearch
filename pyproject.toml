@@ -6,6 +6,9 @@ src = ["apps/api", "apps/ingest", "ml", "scripts"]
 [tool.ruff.lint]
 select = ["E", "F", "I", "UP", "B"]
 
+[tool.ruff.lint.per-file-ignores]
+"scripts/seed_data.py" = ["E501"]
+
 [tool.black]
 line-length = 100
 target-version = ["py311"]
