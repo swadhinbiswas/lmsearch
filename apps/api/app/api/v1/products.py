@@ -1,9 +1,8 @@
 """Product detail endpoint (DB when available, catalog fallback)."""
 
-from fastapi import APIRouter, HTTPException
-
 from apps.api.app.services.catalog import load_catalog, to_hit
 from apps.api.app.services.explainer import spec_match_score
+from fastapi import APIRouter, HTTPException
 
 router = APIRouter()
 

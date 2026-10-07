@@ -3,11 +3,13 @@
 Providers: openai (gpt-4o-mini), ollama (llama3). JSON-schema output, 2s timeout,
 then deterministic rule parser. Results cached by normalized query upstream.
 """
+
 from __future__ import annotations
 
 import json
 import re
-from concurrent.futures import ThreadPoolExecutor, TimeoutError as FuturesTimeout
+from concurrent.futures import ThreadPoolExecutor
+from concurrent.futures import TimeoutError as FuturesTimeout
 
 from apps.api.app.services import query_parser as rule
 
@@ -31,9 +33,8 @@ class OpenAIProvider(LLMProvider):
 
     def complete_json(self, query: str, timeout_s: float = 2.0) -> dict | None:
         try:
-            from openai import OpenAI  # type: ignore
-
             from apps.api.app.core.config import get_settings
+            from openai import OpenAI  # type: ignore
 
             s = get_settings()
             if not s.openai_api_key:

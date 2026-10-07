@@ -3,6 +3,7 @@
 The fallback keeps `make up` / CI green without external services and is the
 code path exercised by unit tests.
 """
+
 from __future__ import annotations
 
 import re
@@ -52,7 +53,6 @@ def try_meili_search(query: str, limit: int = 100) -> list[tuple[int, float]] | 
     """Attempt a real Meilisearch query; return None when unconfigured/unreachable."""
     try:
         import meilisearch  # type: ignore
-
         from apps.api.app.core.config import get_settings
 
         s = get_settings()
@@ -70,7 +70,9 @@ def try_meili_search(query: str, limit: int = 100) -> list[tuple[int, float]] | 
         return None
 
 
-def keyword_search(query: str, docs: list[dict] | None = None, limit: int = 100) -> list[tuple[int, float]]:
+def keyword_search(
+    query: str, docs: list[dict] | None = None, limit: int = 100
+) -> list[tuple[int, float]]:
     live = try_meili_search(query, limit)
     if live is not None and live:
         return live
@@ -84,7 +86,6 @@ def index_products(docs: list[dict]) -> int:
     _mem_index.add_documents(docs)
     try:
         import meilisearch  # type: ignore
-
         from apps.api.app.core.config import get_settings
 
         s = get_settings()

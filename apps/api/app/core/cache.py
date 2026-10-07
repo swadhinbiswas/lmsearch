@@ -1,4 +1,5 @@
 """Cache: Redis when reachable, in-process LRU otherwise (same API)."""
+
 from __future__ import annotations
 
 import hashlib
@@ -18,7 +19,6 @@ def cache_get(ns: str, raw: str) -> dict | None:
     # try redis
     try:
         import redis  # type: ignore
-
         from apps.api.app.core.config import get_settings
 
         r = redis.Redis.from_url(get_settings().redis_url, socket_connect_timeout=0.3)
@@ -41,7 +41,6 @@ def cache_set(ns: str, raw: str, value: dict, ttl_s: int = 300) -> None:
     payload = json.dumps(value, default=str)
     try:
         import redis  # type: ignore
-
         from apps.api.app.core.config import get_settings
 
         r = redis.Redis.from_url(get_settings().redis_url, socket_connect_timeout=0.3)

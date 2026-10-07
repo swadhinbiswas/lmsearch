@@ -1,4 +1,5 @@
 """Vector similarity search: pgvector (HNSW) when DB reachable, in-memory cosine fallback."""
+
 from __future__ import annotations
 
 import math
@@ -19,7 +20,7 @@ def _vec_for(pid: int, text: str) -> list[float]:
 
 
 def cosine(a: list[float], b: list[float]) -> float:
-    dot = sum(x * y for x, y in zip(a, b))
+    dot = sum(x * y for x, y in zip(a, b, strict=False))
     na = math.sqrt(sum(x * x for x in a)) or 1.0
     nb = math.sqrt(sum(y * y for y in b)) or 1.0
     return dot / (na * nb)
@@ -54,7 +55,9 @@ def index_vectors(docs: list[dict]) -> int:
     return len(docs)
 
 
-def vector_search(query: str, docs: list[dict] | None = None, limit: int = 100) -> list[tuple[int, float]]:
+def vector_search(
+    query: str, docs: list[dict] | None = None, limit: int = 100
+) -> list[tuple[int, float]]:
     qv = embed_one(query)
     # Try pgvector first
     try:

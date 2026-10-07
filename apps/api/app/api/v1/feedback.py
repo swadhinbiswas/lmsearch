@@ -18,19 +18,30 @@ class FeedbackIn(BaseModel):
 
 @router.post("/feedback")
 def feedback(body: FeedbackIn) -> dict:
-    entry = {"query": body.query, "product_id": body.product_id, "event": body.event,
-             "rating": body.rating, "ts": time.time()}
+    entry = {
+        "query": body.query,
+        "product_id": body.product_id,
+        "event": body.event,
+        "rating": body.rating,
+        "ts": time.time(),
+    }
     _logs.append(entry)
     try:
-        from apps.api.app.db.session import SessionLocal  # type: ignore
-
         from apps.api.app.db.models import SearchLog  # type: ignore
+        from apps.api.app.db.session import SessionLocal  # type: ignore
         from sqlalchemy.exc import SQLAlchemyError  # type: ignore
 
         db = SessionLocal()
         try:
-            db.add(SearchLog(raw_query=body.query, parsed_json={"event": body.event},
-                             latency_ms=0, result_count=0, clicked_product_id=body.product_id))
+            db.add(
+                SearchLog(
+                    raw_query=body.query,
+                    parsed_json={"event": body.event},
+                    latency_ms=0,
+                    result_count=0,
+                    clicked_product_id=body.product_id,
+                )
+            )
             db.commit()
         except SQLAlchemyError:
             db.rollback()

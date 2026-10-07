@@ -2,9 +2,8 @@
 
 import time
 
-from fastapi import APIRouter
-
 from apps.api.app.core.cache import cache_get, cache_set
+from apps.api.app.core.security import check_rate_limit
 from apps.api.app.schemas.search import ProductHit, SearchRequest, SearchResponse
 from apps.api.app.services.catalog import load_catalog, to_hit
 from apps.api.app.services.explainer import composite_score, price_fit_score, spec_match_score
@@ -12,12 +11,14 @@ from apps.api.app.services.filters import apply_filters
 from apps.api.app.services.hybrid import hybrid_search
 from apps.api.app.services.query_parser_bn import parse_query_multilingual
 from apps.api.app.services.reranker import rerank
+from fastapi import APIRouter, Request
 
 router = APIRouter()
 
 
 @router.post("/search", response_model=SearchResponse)
-def search(body: SearchRequest) -> SearchResponse:
+def search(body: SearchRequest, request: Request) -> SearchResponse:
+    check_rate_limit(request.client.host if request.client else "unknown")
     t0 = time.time()
     norm = body.query.strip().lower()
     cache_key_raw = f"{norm}|{body.category}|{body.limit}"
@@ -56,7 +57,9 @@ def search(body: SearchRequest) -> SearchResponse:
         if len(hits) >= body.limit:
             break
     hits.sort(key=lambda h: -h.match_score)
-    resp = SearchResponse(query=body.query, parsed=parsed, hits=hits, total=len(hits), relaxed=relaxed)
+    resp = SearchResponse(
+        query=body.query, parsed=parsed, hits=hits, total=len(hits), relaxed=relaxed
+    )
     cache_set("search", cache_key_raw, resp.model_dump(), ttl_s=300)
     _ = int((time.time() - t0) * 1000)
     return resp

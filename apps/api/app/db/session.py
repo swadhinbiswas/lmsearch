@@ -1,9 +1,8 @@
 """SQLAlchemy engine/session helpers."""
 
+from apps.api.app.core.config import get_settings
 from sqlalchemy import create_engine
 from sqlalchemy.orm import declarative_base, sessionmaker
-
-from apps.api.app.core.config import get_settings
 
 Base = declarative_base()
 

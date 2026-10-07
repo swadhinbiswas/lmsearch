@@ -12,9 +12,16 @@ def parse_query_multilingual(q: str) -> dict:
         # catalog prices are USD; filter on converted bound
         usd_max = price.get("max_usd", price.get("max"))
         usd_min = price.get("min_usd", price.get("min"))
-        parsed["price"] = {"min": usd_min, "max": usd_max, "currency": "USD",
-                           "original": {"min": price.get("min"), "max": price.get("max"),
-                                        "currency": price.get("currency")}}
+        parsed["price"] = {
+            "min": usd_min,
+            "max": usd_max,
+            "currency": "USD",
+            "original": {
+                "min": price.get("min"),
+                "max": price.get("max"),
+                "currency": price.get("currency"),
+            },
+        }
     # re-detect category on transliterated text (catches ল্যাপটপ/ফোন)
     cat = base.detect_category(norm)
     if cat:

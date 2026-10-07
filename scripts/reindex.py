@@ -1,4 +1,5 @@
 """Reindex helper (v0): loads seed catalog into keyword index."""
+
 from __future__ import annotations
 
 import sys
@@ -12,7 +13,17 @@ from scripts.seed_data import gen_products  # noqa: E402
 
 def main() -> None:
     docs = gen_products(600)
-    n = index_products([{"id": p["id"], "title": p["title"], "description": p["description"], "brand": p["brand"]} for p in docs])
+    n = index_products(
+        [
+            {
+                "id": p["id"],
+                "title": p["title"],
+                "description": p["description"],
+                "brand": p["brand"],
+            }
+            for p in docs
+        ]
+    )
     print(f"indexed {n} products")
 
 

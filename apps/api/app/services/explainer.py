@@ -3,6 +3,7 @@
 score = 0.5*rerank + 0.2*spec_match + 0.15*price_fit + 0.1*rating + 0.05*freshness
 explainer -> {matched[], partial[], missing[]}
 """
+
 from __future__ import annotations
 
 
@@ -41,7 +42,11 @@ def spec_match_score(p: dict, parsed: dict) -> tuple[float, dict]:
             else:
                 missing.append(f"needs {want}GB storage, has {have}GB")
         elif k == "cpu_series":
-            blob = f"{specs.get('cpu_brand','')} {specs.get('cpu_model','')} {specs.get('chipset','')}".lower()
+            blob = (
+                f"{specs.get('cpu_brand', '')} "
+                f"{specs.get('cpu_model', '')} "
+                f"{specs.get('chipset', '')}"
+            ).lower()
             if any(str(w).lower() in blob for w in (want or [])):
                 matched.append(f"CPU matches {'/'.join(want)}")
                 full += 1
@@ -74,10 +79,16 @@ def spec_match_score(p: dict, parsed: dict) -> tuple[float, dict]:
     price = parsed.get("price") or {}
     if price.get("max") is not None:
         if float(p.get("price", 0)) <= float(price["max"]):
-            matched.append(f"${float(p.get('price',0)):.0f} within budget ${float(price['max']):.0f}")
+            matched.append(
+                f"${float(p.get('price',0)):.0f} within budget ${float(price['max']):.0f}"
+            )
         else:
             missing.append(f"${float(p.get('price',0)):.0f} over budget ${float(price['max']):.0f}")
-    return round(full / max(1, total), 4), {"matched": matched, "partial": partial, "missing": missing}
+    return round(full / max(1, total), 4), {
+        "matched": matched,
+        "partial": partial,
+        "missing": missing,
+    }
 
 
 def price_fit_score(p: dict, parsed: dict) -> float:
@@ -101,4 +112,6 @@ def price_fit_score(p: dict, parsed: dict) -> float:
 def composite_score(rerank_s: float, spec_s: float, price_s: float, rating: float) -> float:
     rating_s = max(0.0, min(1.0, (rating - 3.0) / 2.0))
     freshness = 0.5  # seed catalog has no age signal; constant keeps formula stable
-    return round(0.5 * rerank_s + 0.2 * spec_s + 0.15 * price_s + 0.1 * rating_s + 0.05 * freshness, 4)
+    return round(
+        0.5 * rerank_s + 0.2 * spec_s + 0.15 * price_s + 0.1 * rating_s + 0.05 * freshness, 4
+    )

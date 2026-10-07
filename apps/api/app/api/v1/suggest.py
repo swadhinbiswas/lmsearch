@@ -1,8 +1,7 @@
 """Prefix suggestions from brands + titles (no external service)."""
 
-from fastapi import APIRouter, Query
-
 from apps.api.app.services.catalog import load_catalog
+from fastapi import APIRouter, Query
 
 router = APIRouter()
 

@@ -1,11 +1,10 @@
-from fastapi import APIRouter
-
 from apps.api.app.api.v1.admin import router as admin_router
 from apps.api.app.api.v1.feedback import router as feedback_router
 from apps.api.app.api.v1.health import router as health_router
 from apps.api.app.api.v1.products import router as products_router
 from apps.api.app.api.v1.search import router as search_router
 from apps.api.app.api.v1.suggest import router as suggest_router
+from fastapi import APIRouter
 
 api_router = APIRouter()
 api_router.include_router(health_router, tags=["health"])

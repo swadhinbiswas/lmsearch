@@ -1,12 +1,12 @@
 """API-key auth + per-IP rate limiting (Redis-backed, memory fallback)."""
+
 from __future__ import annotations
 
 import time
 from collections import defaultdict
 
-from fastapi import Header, HTTPException
-
 from apps.api.app.core.config import get_settings
+from fastapi import Header, HTTPException
 
 _hits: dict[str, list[float]] = defaultdict(list)
 LIMIT_PER_MIN = 60

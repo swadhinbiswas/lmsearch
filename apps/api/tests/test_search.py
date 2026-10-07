@@ -8,7 +8,9 @@ def test_search_returns_hits(client):
 
 
 def test_search_phone_bdt(client):
-    r = client.post("/api/v1/search", json={"query": "gaming phone 120Hz 5000mAh below 40k BDT", "limit": 5})
+    r = client.post(
+        "/api/v1/search", json={"query": "gaming phone 120Hz 5000mAh below 40k BDT", "limit": 5}
+    )
     assert r.status_code == 200
     assert r.json()["total"] >= 1
 
@@ -26,7 +28,9 @@ def test_suggest(client):
 
 
 def test_feedback(client):
-    r = client.post("/api/v1/feedback", json={"query": "ryzen laptop", "product_id": 1, "event": "click"})
+    r = client.post(
+        "/api/v1/feedback", json={"query": "ryzen laptop", "product_id": 1, "event": "click"}
+    )
     assert r.status_code == 200
     assert r.json()["ok"] is True
 

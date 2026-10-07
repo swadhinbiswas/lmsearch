@@ -1,4 +1,5 @@
 """In-memory catalog used when Postgres is unavailable (dev/tests)."""
+
 from __future__ import annotations
 
 from functools import lru_cache

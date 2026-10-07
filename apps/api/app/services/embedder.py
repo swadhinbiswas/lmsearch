@@ -3,6 +3,7 @@
 Heavy deps (sentence-transformers/torch) are optional at import time so unit
 tests and CI stay fast. Set EMBEDDING_MODEL=BAAI/bge-small-en-v1.5 in prod.
 """
+
 from __future__ import annotations
 
 import hashlib
@@ -26,9 +27,8 @@ def _load_model():
     if not _hf_enabled():
         return None
     try:
-        from sentence_transformers import SentenceTransformer  # type: ignore
-
         from apps.api.app.core.config import get_settings
+        from sentence_transformers import SentenceTransformer  # type: ignore
 
         _model = SentenceTransformer(get_settings().embedding_model)
         return _model
@@ -56,7 +56,6 @@ def embed(texts: str | list[str]) -> list[list[float]]:
     model = _load_model()
     if model is not None:
         try:
-            import numpy as np  # type: ignore
 
             arr = model.encode(prefixed, normalize_embeddings=True)
             return [list(map(float, row)) for row in arr]

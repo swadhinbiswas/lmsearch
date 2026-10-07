@@ -1,9 +1,11 @@
 """enable pgvector + core tables"""
+
 revision = "0001"
 down_revision = None
 
-from alembic import op
-import sqlalchemy as sa
+import sqlalchemy as sa  # noqa: E402
+
+from alembic import op  # noqa: E402
 
 
 def upgrade() -> None:
@@ -40,11 +42,19 @@ def upgrade() -> None:
     op.create_index("ix_specs_key_num", "product_specs", ["key", "value_num"])
     op.create_table(
         "product_embeddings",
-        sa.Column("product_id", sa.Integer, sa.ForeignKey("products.id", ondelete="CASCADE"), primary_key=True),
+        sa.Column(
+            "product_id",
+            sa.Integer,
+            sa.ForeignKey("products.id", ondelete="CASCADE"),
+            primary_key=True,
+        ),
         sa.Column("embedding", sa.Text, nullable=True),
         sa.Column("text_hash", sa.String(64), default=""),
     )
-    op.execute("ALTER TABLE product_embeddings ALTER COLUMN embedding TYPE vector(384) USING embedding::vector(384)")
+    op.execute(
+        "ALTER TABLE product_embeddings ALTER COLUMN embedding "
+        "TYPE vector(384) USING embedding::vector(384)"
+    )
     op.create_table(
         "search_logs",
         sa.Column("id", sa.Integer, primary_key=True, autoincrement=True),

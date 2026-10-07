@@ -2,9 +2,8 @@
 
 Toggle with ENABLE_RERANKER=false. Fallback = token-overlap score in [0,1].
 """
-from __future__ import annotations
 
-from functools import lru_cache
+from __future__ import annotations
 
 _model = None
 
@@ -54,5 +53,5 @@ def rerank(query: str, docs: list[dict], top_k: int = 50) -> list[tuple[int, flo
             scores = [_lexical_score(query, t) for t in texts]
     else:
         scores = [_lexical_score(query, t) for t in texts]
-    ranked = sorted(zip([int(d["id"]) for d in docs], scores), key=lambda x: -x[1])
+    ranked = sorted(zip([int(d["id"]) for d in docs], scores, strict=False), key=lambda x: -x[1])
     return ranked[:top_k]

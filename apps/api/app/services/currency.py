@@ -1,4 +1,5 @@
 """Currency + South-Asian unit handling: k/lakh/BDT/USD/৳, under/below/around/between."""
+
 from __future__ import annotations
 
 import re
@@ -64,14 +65,24 @@ def parse_price(text: str) -> dict:
     if m:
         lo, hi = parse_amount(m.group(1)), parse_amount(m.group(2))
         if lo is not None and hi is not None:
-            return {"min": lo, "max": hi, "currency": cur,
-                    "min_usd": to_usd(lo, cur), "max_usd": to_usd(hi, cur)}
+            return {
+                "min": lo,
+                "max": hi,
+                "currency": cur,
+                "min_usd": to_usd(lo, cur),
+                "max_usd": to_usd(hi, cur),
+            }
     m = AROUND_RE.search(text)
     if m:
         v = parse_amount(m.group(1))
         if v is not None:
-            return {"min": round(v * 0.85, 2), "max": round(v * 1.15, 2), "currency": cur,
-                    "min_usd": to_usd(v * 0.85, cur), "max_usd": to_usd(v * 1.15, cur)}
+            return {
+                "min": round(v * 0.85, 2),
+                "max": round(v * 1.15, 2),
+                "currency": cur,
+                "min_usd": to_usd(v * 0.85, cur),
+                "max_usd": to_usd(v * 1.15, cur),
+            }
     m = UNDER_RE.search(text)
     if m:
         v = parse_amount(m.group(1))
@@ -86,8 +97,12 @@ def parse_price(text: str) -> dict:
     if BDT_HINT.search(text) or "$" in text or "usd" in low or NUM_RE.search(text):
         v = parse_amount(text)
         # only treat as price when currency marker or price verb present
-        if v is not None and (BDT_HINT.search(text) or "$" in text or "usd" in low
-                              or re.search(r"under|below|price|budget|dham|dam", low)):
+        if v is not None and (
+            BDT_HINT.search(text)
+            or "$" in text
+            or "usd" in low
+            or re.search(r"under|below|price|budget|dham|dam", low)
+        ):
             if re.search(r"under|below|less|up ?to", low):
                 return {"min": None, "max": v, "currency": cur, "max_usd": to_usd(v, cur)}
             return {"min": None, "max": v, "currency": cur, "max_usd": to_usd(v, cur)}
@@ -117,9 +132,17 @@ def transliterate_mixed(text: str) -> str:
         out = out.replace(bn, f" {en} ")
     # common romanized typos / variants
     fixes = {
-        "labtop": "laptop", "laptap": "laptop", "leptop": "laptop",
-        "ryzenn": "ryzen", "ryzen ": "ryzen ", "32 gb": "32gb", "16 gb": "16gb", "8 gb": "8gb",
-        "sumsung": "samsung", "xiaomi ": "xiaomi ", " battary ": " battery ",
+        "labtop": "laptop",
+        "laptap": "laptop",
+        "leptop": "laptop",
+        "ryzenn": "ryzen",
+        "ryzen ": "ryzen ",
+        "32 gb": "32gb",
+        "16 gb": "16gb",
+        "8 gb": "8gb",
+        "sumsung": "samsung",
+        "xiaomi ": "xiaomi ",
+        " battary ": " battery ",
     }
     low = out.lower()
     for k, v in fixes.items():

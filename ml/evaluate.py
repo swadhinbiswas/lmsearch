@@ -1,4 +1,5 @@
 """Eval: parser spec-accuracy + Precision@10 / nDCG@10. CI fails if parser < 90%."""
+
 from __future__ import annotations
 
 import json
@@ -9,7 +10,6 @@ sys.path.insert(0, ".")
 sys.path.insert(0, "apps/api")
 
 from apps.api.app.services.catalog import load_catalog  # noqa: E402
-from apps.api.app.services.filters import matches  # noqa: E402
 from apps.api.app.services.hybrid import hybrid_search  # noqa: E402
 from apps.api.app.services.query_parser_bn import parse_query_multilingual  # noqa: E402
 
@@ -44,9 +44,15 @@ def relevance(item: dict, product: dict) -> int:
     specs = product.get("specs", {})
     if rel.get("ram_gb_min") is not None and (specs.get("ram_gb", 0) or 0) >= rel["ram_gb_min"]:
         score += 2
-    if rel.get("battery_mah_min") is not None and (specs.get("battery_mah", 0) or 0) >= rel["battery_mah_min"]:
+    if (
+        rel.get("battery_mah_min") is not None
+        and (specs.get("battery_mah", 0) or 0) >= rel["battery_mah_min"]
+    ):
         score += 2
-    if rel.get("refresh_hz_min") is not None and (specs.get("refresh_hz", 0) or 0) >= rel["refresh_hz_min"]:
+    if (
+        rel.get("refresh_hz_min") is not None
+        and (specs.get("refresh_hz", 0) or 0) >= rel["refresh_hz_min"]
+    ):
         score += 1
     exp = item.get("expected", {})
     if exp.get("category") and product.get("category") == exp["category"]:

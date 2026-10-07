@@ -1,4 +1,5 @@
 """APScheduler price-refresh + embedding jobs (hourly prices, nightly vectors)."""
+
 from __future__ import annotations
 
 import logging

@@ -2,6 +2,7 @@
 
 import datetime as dt
 
+from apps.api.app.db.session import Base
 from sqlalchemy import (
     JSON,
     Boolean,
@@ -14,14 +15,11 @@ from sqlalchemy import (
     String,
     Text,
 )
-from sqlalchemy.dialects.postgresql import ARRAY
 from sqlalchemy.orm import Mapped, mapped_column, relationship
-
-from apps.api.app.db.session import Base
 
 
 def utcnow() -> dt.datetime:
-    return dt.datetime.now(dt.timezone.utc)
+    return dt.datetime.now(dt.UTC)
 
 
 class Product(Base):
@@ -49,7 +47,10 @@ class Product(Base):
         "ProductSpec", back_populates="product", cascade="all, delete-orphan"
     )
 
-    __table_args__ = (Index("ix_products_price", "price"), Index("ix_products_category", "category"))
+    __table_args__ = (
+        Index("ix_products_price", "price"),
+        Index("ix_products_category", "category"),
+    )
 
 
 class ProductSpec(Base):

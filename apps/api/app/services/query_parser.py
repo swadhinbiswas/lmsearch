@@ -2,21 +2,62 @@
 
 Deterministic and fast. The LLM layer (next phase) calls this as validator/repair.
 """
+
 from __future__ import annotations
 
 import re
 
-BRANDS = ["lenovo", "hp", "dell", "asus", "acer", "msi", "apple", "samsung",
-          "xiaomi", "realme", "oneplus", "vivo", "oppo", "google", "motorola", "huawei", "infinix"]
-LAPTOP_HINTS = ["laptop", "notebook", "macbook", "thinkpad", "ultrabook", "ryzen", "intel", "core i", "ssd"]
+BRANDS = [
+    "lenovo",
+    "hp",
+    "dell",
+    "asus",
+    "acer",
+    "msi",
+    "apple",
+    "samsung",
+    "xiaomi",
+    "realme",
+    "oneplus",
+    "vivo",
+    "oppo",
+    "google",
+    "motorola",
+    "huawei",
+    "infinix",
+]
+LAPTOP_HINTS = [
+    "laptop",
+    "notebook",
+    "macbook",
+    "thinkpad",
+    "ultrabook",
+    "ryzen",
+    "intel",
+    "core i",
+    "ssd",
+]
 PHONE_HINTS = ["phone", "mobile", "smartphone", "android", "iphone", "5g", "mah", "camera"]
-USE_CASES = ["gaming", "programming", "coding", "office", "student", "study", "video editing", "design"]
+USE_CASES = [
+    "gaming",
+    "programming",
+    "coding",
+    "office",
+    "student",
+    "study",
+    "video editing",
+    "design",
+]
 
 RAM_RE = re.compile(r"(\d{1,3})\s*gb\s*(?:ram)?", re.I)
 STORAGE_RE = re.compile(r"(\d+(?:\.\d+)?)\s*(tb|gb)\b", re.I)
-PRICE_UNDER = re.compile(r"(?:under|below|less than|<|<=|within|upto|up to)\s*\$?\s*([\d,]+(?:\.\d+)?)\s*(k\b)?", re.I)
+PRICE_UNDER = re.compile(
+    r"(?:under|below|less than|<|<=|within|upto|up to)\s*\$?\s*([\d,]+(?:\.\d+)?)\s*(k\b)?", re.I
+)
 PRICE_OVER = re.compile(r"(?:over|above|more than|>|>=)\s*\$?\s*([\d,]+(?:\.\d+)?)\s*(k\b)?", re.I)
-PRICE_BETWEEN = re.compile(r"between\s*\$?\s*([\d,]+)\s*(k\b)?\s*and\s*\$?\s*([\d,]+)\s*(k\b)?", re.I)
+PRICE_BETWEEN = re.compile(
+    r"between\s*\$?\s*([\d,]+)\s*(k\b)?\s*and\s*\$?\s*([\d,]+)\s*(k\b)?", re.I
+)
 DOLLAR_FIND = re.compile(r"\$\s*([\d,]+(?:\.\d+)?)\s*(k\b)?", re.I)
 REFRESH_RE = re.compile(r"(\d{2,3})\s*hz", re.I)
 BATTERY_RE = re.compile(r"(\d{3,5})\s*mah", re.I)
@@ -57,10 +98,10 @@ def detect_cpu_series(q: str) -> list[str]:
     if "ryzen" in low:
         m = re.search(r"ryzen\s*([3579])", low)
         out.append(f"ryzen{m.group(1)}" if m else "ryzen")
-    for i in (["i3", "i5", "i7", "i9"]):
+    for i in ["i3", "i5", "i7", "i9"]:
         if re.search(rf"\b{i}\b", low) or re.search(rf"core\s*{i}", low):
             out.append(i)
-    for mchip in (["m1", "m2", "m3"]):
+    for mchip in ["m1", "m2", "m3"]:
         if re.search(rf"\b{mchip}\b", low):
             out.append(mchip)
     return out

@@ -1,7 +1,5 @@
 """First spider: laptop listings (static demo + Playwright hook for JS pages)."""
 
-import scrapy
-
 from apps.ingest.spiders.base import PoliteSpider
 
 

@@ -1,4 +1,9 @@
-from apps.ingest.normalizers import normalize_cpu, normalize_ram_gb, normalize_specs, normalize_storage_gb
+from apps.ingest.normalizers import (
+    normalize_cpu,
+    normalize_ram_gb,
+    normalize_specs,
+    normalize_storage_gb,
+)
 
 
 def test_ram():

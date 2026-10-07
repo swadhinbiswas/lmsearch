@@ -1,4 +1,5 @@
 """Deterministic spec normalizers shared by ingest + API."""
+
 from __future__ import annotations
 
 import re
@@ -41,7 +42,7 @@ def normalize_storage_gb(text: str) -> tuple[int | None, str]:
     # skip candidates that are part of a RAM phrase ("32GB RAM")
     filtered: list = []
     for m in pool:
-        after = text[m.end(): m.end() + 8].lower()
+        after = text[m.end() : m.end() + 8].lower()
         if "ram" in after[:5] and not m.group(3):
             continue
         filtered.append(m)
@@ -135,11 +136,14 @@ def normalize_specs(title: str, description: str = "", category: str = "laptop")
 
 
 WEIGHT_RE = __import__("re").compile(r"(\d+(?:\.\d+)?)\s*kg", __import__("re").I)
-OS_RE = __import__("re").compile(r"(windows\s*11|windows\s*10|macos|ubuntu|linux|dos)", __import__("re").I)
+OS_RE = __import__("re").compile(
+    r"(windows\s*11|windows\s*10|macos|ubuntu|linux|dos)", __import__("re").I
+)
 
 
 def normalize_weight_kg(text: str) -> float | None:
     import re as _re
+
     m = _re.search(r"(\d+(?:\.\d+)?)\s*kg", text or "", _re.I)
     if m:
         v = float(m.group(1))
@@ -150,5 +154,6 @@ def normalize_weight_kg(text: str) -> float | None:
 
 def normalize_os(text: str) -> str:
     import re as _re
+
     m = _re.search(r"(windows\s*11|windows\s*10|macos|ubuntu|linux|dos)", text or "", _re.I)
     return m.group(1).title() if m else ""
