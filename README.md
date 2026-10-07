@@ -1,58 +1,78 @@
-# lmsearch — AI Natural-Language Product Search Engine
+<div align="center">
+  <img src="apps/web/public/mascot.svg" alt="lmsearch mascot" width="120" />
+</div>
+
+# lmsearch — natural-language product search
 
 > Rebuilt from the original 2024 lmsearch project; commit dates reflect the original development timeline.
 
-Type a free-form request like *"Ryzen laptop with 32GB RAM under $1200 for programming"* or
-*"gaming phone, 120Hz screen, 5000mAh battery, below 40k BDT"* and get ranked product cards
-with match explanations.
+Type a plain request such as *"Ryzen laptop with 32GB RAM under $1200 for programming"* or
+*"gaming phone, 120Hz screen, 5000mAh battery, below 40k BDT"* and get ranked product
+cards with a per-product explanation of what matched.
 
-## Architecture
+The demo catalog holds 96 real 2024 laptop and phone models with their true specs.
+40 of them carry verified product photos; the rest show a placeholder until a photo
+is curated. Prices are indicative 2024 street prices, not live quotes.
 
-```mermaid
-flowchart LR
-    U[User query] --> P[LLM parser gpt-4o-mini + rule repair + cache]
-    P --> F[Hard spec filters]
-    F --> K[Meilisearch top 100]
-    F --> V[pgvector HNSW top 100]
-    K --> RRF[RRF fusion k=60]
-    V --> RRF
-    RRF --> R[Cross-encoder rerank top 50]
-    R --> S[Composite score]
-    S --> W[Next.js UI]
-```
-
-See `docs/architecture.md`, `docs/ranking.md`, `docs/api.md`.
-
-## Setup (`make up`)
+## Run it
 
 ```bash
-cp .env.example .env        # set OPENAI_API_KEY + ADMIN_API_KEY
-make up                     # postgres + redis + meilisearch + api
-make seed                   # load 600 demo products
+cp .env.example .env        # set OPENAI_API_KEY (optional) and ADMIN_API_KEY
+make up                     # postgres + redis + meilisearch + api on :8000
+make seed                   # load the 96-product catalog
 make reindex                # build keyword + vector indexes
-# web
-cd apps/web && npm install && npm run dev
+cd apps/web && npm install && npm run dev   # storefront on :3000
 ```
 
-Seeded demo runs with no scraping and no GPU: embeddings/reranker fall back to
-deterministic lexical scoring unless `LMSEARCH_USE_HF_EMBEDDINGS=1` / `LMSEARCH_USE_HF_RERANKER=1`.
-
-## API quickstart
+Without an `OPENAI_API_KEY` the parser runs fully offline: the deterministic
+rule layer handles RAM, storage, CPU, brands, prices (`k`/`lakh`/BDT/`৳`,
+under/below/around/between) and Bangla-English mixed queries. Set
+`LMSEARCH_USE_HF_EMBEDDINGS=1` / `LMSEARCH_USE_HF_RERANKER=1` to use the real
+bge models; otherwise the services fall back to deterministic local scoring.
 
 ```bash
 curl -X POST localhost:8000/api/v1/search -H 'Content-Type: application/json' \
   -d '{"query":"Ryzen laptop 32GB RAM under $1200","limit":5}'
 ```
 
-## Eval
+## How a query flows
 
-```bash
-pytest -q
-python ml/evaluate.py   # parser ≥90% gate, Precision@10, nDCG@10
+```
+query → LLM parse (gpt-4o-mini, 2s timeout) + rule repair → hard spec filters
+      → Meilisearch top-100 + pgvector top-100 in parallel → RRF fusion (k=60)
+      → cross-encoder rerank top-50 → composite score → explanation
 ```
 
+`score = 0.5·rerank + 0.2·spec_match + 0.15·price_fit + 0.1·rating + 0.05·freshness`.
+Fewer than 5 hits triggers progressive relaxation (brand, then price ±20%, then
+refresh/battery, storage, RAM, CPU) and the response reports what was relaxed.
+Details: `docs/architecture.md`, `docs/ranking.md`, `docs/api.md`.
+
+## Measured quality
+
+100-query eval set (`ml/eval/dataset.json`, `python ml/evaluate.py`):
+
+- Parser spec-accuracy: **1.000** (CI fails below 0.90)
+- Precision@10: **0.952** · nDCG@10: **0.943**
+- API tests: 20 passed; `ruff check` and `black --check` clean
+
+## Endpoints
+
+| Method | Path | Purpose |
+|---|---|---|
+| POST | `/api/v1/search` | Ranked hits with `parsed`, `relaxed[]`, explanations |
+| GET | `/api/v1/products/{id}` | Full card with specs |
+| GET | `/api/v1/suggest?q=` | Prefix suggestions |
+| POST | `/api/v1/feedback` | Click/rating log |
+| POST | `/api/v1/admin/reindex` | Rebuild indexes (`X-API-Key` required) |
+| GET | `/api/v1/health` | Service status |
+
+Interactive docs at `/docs`. Rate limit is 60 requests/min per IP; every
+response carries an `X-Request-ID`.
+
 ## Roadmap
-- [ ] Playwright JS-rendered spiders for top BD/US stores
-- [ ] Price-drop alerts + search-log click models
-- [ ] Multilingual (Bangla) embeddings + voice search
-- [ ] Kubernetes manifests + staging env
+
+- [ ] Sellers for the BD market with live price refresh
+- [ ] Price-drop alerts from `search_logs`
+- [ ] Bangla-language embeddings
+- [ ] Kubernetes manifests and a staging environment
